@@ -16,7 +16,7 @@ public class BooksController {
         this.bookRepository = bookRepository;
     }
     @GetMapping()
-    public List<Book> getBook(){
+    public List<Book> getAllBooks(){
         return  bookRepository.findAll();
     }
     @PostMapping()
