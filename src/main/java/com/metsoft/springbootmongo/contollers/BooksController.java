@@ -23,5 +23,14 @@ public class BooksController {
     public Book addBook(@RequestBody Book book){
         return bookService.createBook(book);
     }
+    @PutMapping("/update")
+    public Book updateBook(@RequestBody Book book) throws Exception {
+        if (book.getId()==null) throw new Exception("ID is required");
+        return bookService.createBook(book);
+    }
+    @DeleteMapping("/{id}")
+    public void deleteBook(@PathVariable("id") String id){
+        bookService.deleteBook(id);
+    }
 
 }

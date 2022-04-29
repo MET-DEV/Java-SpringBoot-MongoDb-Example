@@ -27,4 +27,9 @@ public class BookServiceImplementation implements BookService {
     public Book createBook(Book book) {
         return bookRepository.save(book);
     }
+
+    @Override
+    public void deleteBook(String id) {
+        bookRepository.deleteById(String.valueOf(id));
+    }
 }
