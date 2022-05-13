@@ -4,6 +4,7 @@ import com.metsoft.springbootmongo.entities.Book;
 import com.metsoft.springbootmongo.repositories.BookRepository;
 import com.metsoft.springbootmongo.services.interfaces.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class BookServiceImplementation implements BookService {
 
 
     @Override
+    @Cacheable(cacheNames = "books")
     public List<Book> getBooks() {
         return bookRepository.findAll();
     }
